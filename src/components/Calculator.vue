@@ -42,6 +42,7 @@ export default {
       previousInput: null,
       clickedOperation: false,
       operator: null,
+      equalClicked: false,
     };
   },
   methods: {
@@ -64,6 +65,8 @@ export default {
         this.currData = "";
         this.clickedOperation = false;
       }
+      this.reduceLengthOfNumber(this.currData);
+      this.clearResBeforeCalc();
       this.currData = `${this.currData}${digit}`;
     },
     changeSign() {
@@ -79,6 +82,7 @@ export default {
       console.log("this.previousInput " + this.previousInput);
       console.log("this.currData " + this.currData);
       this.clickedOperation = true;
+      this.equalClicked = false;
     },
     oneDevideByX() {
       this.currData = `${1 / this.currData}`;
@@ -115,68 +119,90 @@ export default {
         parseFloat(this.previousInput),
         parseFloat(this.currData)
       )}`;
+      this.reduceLengthOfNumber(this.currData);
       this.clickedOperation = true;
+      this.equalClicked = true;
+    },
+    clearResBeforeCalc() {
+      if (this.equalClicked) {
+        this.currData = "";
+        this.currResult = "";
+      }
+      this.equalClicked = false;
+    },
+    reduceLengthOfNumber(number) {
+      if (number.length > 15) {
+        this.currData = parseFloat(number).toExponential(10);
+      }
     },
   },
 };
 </script>
 
-<style style="scss" scoped>
+<style lang="scss" scoped>
 .calculator-app {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(50px, auto);
   width: 400px;
-  margin: 0 auto;
+  margin: 0 40%;
   padding: 10px;
   font-size: 20px;
   border-radius: 15px;
   color: white;
-
   box-shadow: 0px 2px 17px 8px #313131;
+
+  .result {
+    position: relative;
+    grid-column: 1/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: #5fc4af;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
+    .currentNumber {
+      position: absolute;
+      right: 10px;
+      bottom: 2px;
+      font-size: 40px;
+      margin: 0;
+    }
+    .resultNumber {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 7px;
+    margin: 2px 2px;
+    transition: background-color 0.2s;
+    cursor: default;
+
+    &:hover {
+      background-color: #95d6c9;
+    }
+  }
+  .digits {
+    background-color: #175d4e;
+
+    &:active {
+      animation: press_button 0.1s ease-in-out;
+    }
+  }
+  .equal {
+    background-color: #95d6c9;
+  }
 }
 
-.digits {
-  background-color: #175d4e;
-}
-
-.result {
-  position: relative;
-  grid-column: 1/5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  background-color: #5fc4af;
-  border-radius: 15px;
-  margin-bottom: 10px;
-}
-.currentNumber {
-  position: absolute;
-  right: 10px;
-  bottom: 2px;
-  font-size: 40px;
-  margin: 0;
-}
-.resultNumber {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-}
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 7px;
-  margin: 2px 2px;
-  transition: background-color 0.2s;
-  cursor: default;
-}
-.btn:active {
-  animation: press_button 0.1s ease-in-out;
-}
-
+//animations
 @keyframes press_button {
   0% {
     transform: scale(1, 1);
@@ -184,12 +210,5 @@ export default {
   100% {
     transform: scale(0.9, 0.9);
   }
-}
-.equal {
-  background-color: #95d6c9;
-}
-
-.btn:hover {
-  background-color: #95d6c9;
 }
 </style>

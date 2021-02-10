@@ -1,5 +1,7 @@
 # calculator-app
 
+![](https://giphy.com/gifs/js-calculator-vue-54u95VIHXR4bAb7ve1)
+
 ## Project setup
 ```
 npm install

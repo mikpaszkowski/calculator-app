@@ -1,26 +1,24 @@
 <template>
   <div class="main_app">
     <Calculator />
-    <div class="tech-stack">
-      <ion-icon name="logo-vue"></ion-icon>
-      <ion-icon name="logo-html5"></ion-icon>
-      <ion-icon name="logo-nodejs"></ion-icon>
-    </div>
+    <TechStack class="tech-stack" />
   </div>
 </template>
 
 <script>
 import Calculator from "./components/Calculator.vue";
+import TechStack from "./components/Techstack.vue";
 
 export default {
   name: "App",
   components: {
     Calculator,
+    TechStack,
   },
 };
 </script>
 
-<style>
+<style lang="scss">
 body {
   background: #44a08d; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -41,5 +39,10 @@ body {
   text-align: center;
   color: #2c3e50;
   margin-top: 150px;
+}
+.tech-stack {
+  position: absolute;
+  top: 60px;
+  left: 200px;
 }
 </style>
