@@ -1,6 +1,6 @@
 # calculator-app
 
-(<iframe src="https://giphy.com/embed/54u95VIHXR4bAb7ve1" width="426" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/js-calculator-vue-54u95VIHXR4bAb7ve1">via GIPHY</a></p>)
+![Alt Text](https://media1.giphy.com/media/54u95VIHXR4bAb7ve1/giphy.gif)
 
 ## Project setup
 ```
