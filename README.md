@@ -1,6 +1,6 @@
 # calculator-app
 
-![Alt Text](https://media1.giphy.com/media/54u95VIHXR4bAb7ve1/giphy.gif = 250x250)
+![Alt Text](https://media1.giphy.com/media/54u95VIHXR4bAb7ve1/giphy.gif)
 
 ## Project setup
 ```
