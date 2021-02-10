@@ -1,4 +1,7 @@
-# calculator-app
+# Vue-Calculator 🖩
+```
+The project called "Vue-Calculator" is a simple application enablinig to do simple calculations 🧮. It project was built on Vue.js with a help of SCSS nad HTML5.
+```
 
 ![Alt Text](https://media1.giphy.com/media/54u95VIHXR4bAb7ve1/giphy.gif)
 
@@ -34,3 +37,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### License
+This project is licensed under the terms of the MIT license.
